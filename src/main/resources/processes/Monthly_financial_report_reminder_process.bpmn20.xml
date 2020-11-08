@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef">
+  <process id="financialReport" name="Monthly financial report reminder process" isExecutable="true">
+    <startEvent id="startEvent1" flowable:formFieldValidation="true"></startEvent>
+    <userTask id="writeReportTask" name="Write monthly financial report" flowable:assignee="aryan" flowable:formKey="test" flowable:formFieldValidation="true">
+      <documentation>Write monthly financial report for publication to shareholders.</documentation>
+      <extensionElements>
+        <modeler:activiti-idm-assignee xmlns:modeler="http://flowable.org/modeler"><![CDATA[true]]></modeler:activiti-idm-assignee>
+        <modeler:assignee-info-email xmlns:modeler="http://flowable.org/modeler"><![CDATA[aryan@smartmind.com]]></modeler:assignee-info-email>
+        <modeler:assignee-info-firstname xmlns:modeler="http://flowable.org/modeler"><![CDATA[aryan]]></modeler:assignee-info-firstname>
+        <modeler:assignee-info-lastname xmlns:modeler="http://flowable.org/modeler"><![CDATA[ra]]></modeler:assignee-info-lastname>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-9D54062E-D6E1-40B2-8B24-32E5EBAA3F59" sourceRef="startEvent1" targetRef="writeReportTask"></sequenceFlow>
+    <userTask id="verifyReportTask" name="Verify monthly financial report" flowable:assignee="ali" flowable:formFieldValidation="true">
+      <documentation>Verify monthly financial report composed by the accountancy department.
+          This financial report is going to be sent to all the company shareholders.</documentation>
+      <extensionElements>
+        <modeler:activiti-idm-assignee xmlns:modeler="http://flowable.org/modeler"><![CDATA[true]]></modeler:activiti-idm-assignee>
+        <modeler:assignee-info-email xmlns:modeler="http://flowable.org/modeler"><![CDATA[ali@smartmind.com]]></modeler:assignee-info-email>
+        <modeler:assignee-info-firstname xmlns:modeler="http://flowable.org/modeler"><![CDATA[ali]]></modeler:assignee-info-firstname>
+        <modeler:assignee-info-lastname xmlns:modeler="http://flowable.org/modeler"><![CDATA[abdi]]></modeler:assignee-info-lastname>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-A4BC6CC9-F00B-4B11-8013-00E3BB4DB8E1" sourceRef="writeReportTask" targetRef="verifyReportTask"></sequenceFlow>
+    <endEvent id="sid-49DBB04C-B5EC-42D4-992A-65789E6E040F"></endEvent>
+    <sequenceFlow id="sid-4A41DCDC-BB99-491C-BB3D-199A54E6DBB2" sourceRef="verifyReportTask" targetRef="sid-49DBB04C-B5EC-42D4-992A-65789E6E040F"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_financialReport">
+    <bpmndi:BPMNPlane bpmnElement="financialReport" id="BPMNPlane_financialReport">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="163.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="writeReportTask" id="BPMNShape_writeReportTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="175.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="verifyReportTask" id="BPMNShape_verifyReportTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="320.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-49DBB04C-B5EC-42D4-992A-65789E6E040F" id="BPMNShape_sid-49DBB04C-B5EC-42D4-992A-65789E6E040F">
+        <omgdc:Bounds height="28.0" width="28.0" x="465.0" y="164.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-9D54062E-D6E1-40B2-8B24-32E5EBAA3F59" id="BPMNEdge_sid-9D54062E-D6E1-40B2-8B24-32E5EBAA3F59">
+        <omgdi:waypoint x="129.9499984899576" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="174.9999999999917" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-4A41DCDC-BB99-491C-BB3D-199A54E6DBB2" id="BPMNEdge_sid-4A41DCDC-BB99-491C-BB3D-199A54E6DBB2">
+        <omgdi:waypoint x="419.95000000000005" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="465.0" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-A4BC6CC9-F00B-4B11-8013-00E3BB4DB8E1" id="BPMNEdge_sid-A4BC6CC9-F00B-4B11-8013-00E3BB4DB8E1">
+        <omgdi:waypoint x="274.9499999999907" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="319.9999999999807" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
